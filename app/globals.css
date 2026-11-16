@@ -1,26 +1,151 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * PIDECO — Design system
+ * Tous les tokens visuels (couleurs, polices, rayons, ombres) sont centralisés ici.
+ * Palette provisoire « vert institutionnel & bleu » en attendant la charte officielle
+ * (cf. fiche de collecte, docs/references/Kit_Complet_Site_Web_PIDECO.docx).
+ */
+@theme {
+  /* Couleurs de marque */
+  --color-forest-950: #0a2a20;
+  --color-forest-900: #0f3d2e; /* Vert profond — développement */
+  --color-forest-800: #14523d;
+  --color-forest-700: #1b6a4f;
+  --color-forest-600: #23855f;
+  --color-leaf-300: #b5dc8f;
+  --color-leaf-400: #9bcf6b; /* Vert clair — mise en évidence */
+  --color-leaf-100: #e8f4dc;
+  --color-night-950: #08111f;
+  --color-night-900: #0e1b33; /* Bleu nuit — confiance */
+  --color-night-800: #17284a;
+  --color-night-700: #22385f;
+  --color-sun-400: #f2b33d; /* Jaune chaud — accents ponctuels */
+  --color-sun-500: #e09a1c;
+  --color-sun-100: #fdf1d8;
+  --color-paper: #f7f5ef; /* Blanc cassé */
+  --color-sand: #ece7da;
+  --color-ink: #1a2230;
+  --color-muted: #5a6475;
+  --color-line: #ddd8cb;
+  --color-danger: #b42318;
+  --color-danger-50: #fef3f2;
+  --color-success: #1b6a4f;
+
+  /* Typographie */
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Rayons */
+  --radius-card: 1rem;
+  --radius-feature: 2.5rem;
+
+  /* Ombres */
+  --shadow-card: 0 1px 2px rgb(14 27 51 / 0.04), 0 8px 24px -12px rgb(14 27 51 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(14 27 51 / 0.06), 0 20px 40px -16px rgb(14 27 51 / 0.22);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-sun-400);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-site {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-site {
+      padding-inline: 2.5rem;
+    }
+  }
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .prose-pideco p {
+    margin-bottom: 1.1em;
+    line-height: 1.75;
+  }
+  .prose-pideco h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2em 0 0.6em;
+    color: var(--color-night-900);
+  }
+  .prose-pideco ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 1.1em;
+  }
+  .prose-pideco li {
+    margin-bottom: 0.4em;
+  }
+}
+
+/* Motif organique utilisé dans les visuels de remplacement */
+.media-pattern {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.08) 0 18%, transparent 19%),
+    radial-gradient(circle at 80% 70%, rgb(255 255 255 / 0.06) 0 24%, transparent 25%),
+    repeating-linear-gradient(135deg, rgb(255 255 255 / 0.04) 0 2px, transparent 2px 14px);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }

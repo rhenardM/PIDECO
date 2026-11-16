@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PIDECO — Site institutionnel
 
-## Getting Started
+Site du **Programme Intégré de Développement Communautaire** (RDC). Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript.
 
-First, run the development server:
+> ⚠️ **Version de démonstration.** Les chiffres, projets, actualités, appels et coordonnées sont des contenus de démonstration issus du kit de cadrage. Les formulaires valident les données mais ne les enregistrent pas encore.
+
+## Démarrer
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # build de production
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Route | Contenu |
+|---|---|
+| `/` | Accueil : hero, présentation, chiffres clés, axes, projets phares, approche, actualités, partenaires, appel à candidatures |
+| `/a-propos` | Présentation, historique, mission & vision, valeurs, objectifs, gouvernance & équipe, zones |
+| `/programmes`, `/programmes/[slug]` | Les 4 axes, avec une fiche détaillée par axe |
+| `/projets`, `/projets/[slug]` | Catalogue filtrable (axe, province, statut), réalisations par province, fiches projet avec galerie |
+| `/actualites`, `/actualites/[slug]` | Articles par catégorie, communiqués, rapports, galerie photo |
+| `/candidats` | Démarche, éligibilité, appels ouverts et clôturés, FAQ |
+| `/candidats/appels/[slug]` | Détail d'un appel |
+| `/candidats/soumettre` | Formulaire de candidature en 4 étapes avec pièces jointes |
+| `/transparence` | Rapports, documents institutionnels, résultats, financements |
+| `/contact` | Coordonnées, bureaux, formulaire, réseaux sociaux, carte (si coordonnées GPS confirmées) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Modifier les contenus
 
-## Learn More
+Tous les contenus se trouvent dans [`content/`](content/). Une valeur `null` signifie « à fournir » ; elle s'affiche comme un emplacement explicite.
 
-To learn more about Next.js, take a look at the following resources:
+## Variables d'environnement
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Défaut | Rôle |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | `https://pideco-rdc.org` | URL canonique (SEO, sitemap) |
+| `NEXT_PUBLIC_DEMO_MODE` | activé | `false` masque le bandeau démo et autorise l'indexation |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Documentation
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [docs/DECISIONS.md](docs/DECISIONS.md) : architecture, design system, arbitrages, ce qui est fonctionnel ou non.
+- [docs/CONTENUS_A_COLLECTER.md](docs/CONTENUS_A_COLLECTER.md) : informations à obtenir auprès de PIDECO.
+- [docs/references/](docs/references/) : kit de contenu et maquettes de référence.
