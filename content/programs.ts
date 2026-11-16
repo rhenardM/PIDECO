@@ -3,6 +3,8 @@
  * Objectifs / activités / bénéficiaires sont reformulés à partir du kit.
  * Les « résultats attendus » chiffrés ne sont pas fournis : à compléter par PIDECO.
  */
+import type { IllustrationKey } from "./images";
+
 export type Program = {
   slug: string;
   number: number;
@@ -15,6 +17,8 @@ export type Program = {
   beneficiaries: string[];
   expectedResults: string[] | null;
   tone: "forest" | "night" | "sun" | "leaf";
+  /** Photo d'illustration (exemple) — voir content/images.ts */
+  image: IllustrationKey;
 };
 
 export const programs: Program[] = [
@@ -39,6 +43,7 @@ export const programs: Program[] = [
     beneficiaries: ["Jeunes diplômés", "Jeunes déscolarisés", "Jeunes femmes porteuses de projets"],
     expectedResults: null,
     tone: "forest",
+    image: "installation-panneaux-solaires",
   },
   {
     slug: "agriculture-securite-alimentaire",
@@ -62,6 +67,7 @@ export const programs: Program[] = [
     beneficiaries: ["Coopératives paysannes", "Groupements de femmes agricultrices", "Unités de transformation locales"],
     expectedResults: null,
     tone: "leaf",
+    image: "riziculture-ruzizi",
   },
   {
     slug: "infrastructures-communautaires",
@@ -84,6 +90,7 @@ export const programs: Program[] = [
     beneficiaries: ["Communautés rurales et périurbaines", "Élèves et personnels de santé", "Main-d'œuvre locale"],
     expectedResults: null,
     tone: "night",
+    image: "centre-de-sante",
   },
   {
     slug: "gouvernance-locale",
@@ -106,6 +113,7 @@ export const programs: Program[] = [
     beneficiaries: ["Comités Locaux de Développement", "Autorités locales", "Organisations communautaires"],
     expectedResults: null,
     tone: "sun",
+    image: "etudiantes-presentation",
   },
 ];
 

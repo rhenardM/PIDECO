@@ -43,7 +43,7 @@ Pour chaque élément : où le renseigner une fois obtenu.
 
 ## Médias
 
-- Photographies authentiques des activités, avec crédits et consentement des personnes photographiées. Chaque emplacement indique la photo attendue (« Photo à fournir — … »).
+- Photographies authentiques des activités, avec crédits et consentement des personnes photographiées. Elles remplaceront les **photos d'illustration Wikimedia Commons** actuelles (voir `/credits` et `content/images.ts`).
 - Témoignages de bénéficiaires, avec consentement.
 
 ## Décisions techniques à prendre

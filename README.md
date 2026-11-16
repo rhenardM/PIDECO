@@ -2,7 +2,7 @@
 
 Site du **Programme Intégré de Développement Communautaire** (RDC). Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript.
 
-> ⚠️ **Version de démonstration.** Les chiffres, projets, actualités, appels et coordonnées sont des contenus de démonstration issus du kit de cadrage. Les formulaires valident les données mais ne les enregistrent pas encore.
+> ⚠️ **Version de démonstration.** Les chiffres, projets, actualités, appels et coordonnées sont des contenus de démonstration issus du kit de cadrage. Les photos sont des **illustrations sous licence libre (Wikimedia Commons)**, sans lien avec PIDECO, créditées sur `/credits`. Les formulaires valident les données mais ne les enregistrent pas encore.
 
 ## Démarrer
 
@@ -27,6 +27,7 @@ npm run lint
 | `/candidats/soumettre` | Formulaire de candidature en 4 étapes avec pièces jointes |
 | `/transparence` | Rapports, documents institutionnels, résultats, financements |
 | `/contact` | Coordonnées, bureaux, formulaire, réseaux sociaux, carte (si coordonnées GPS confirmées) |
+| `/credits` | Crédits et licences des photos d'illustration |
 
 ## Modifier les contenus
 

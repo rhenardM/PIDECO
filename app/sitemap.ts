@@ -6,7 +6,7 @@ import { news } from "@/content/news";
 import { calls } from "@/content/calls";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths = ["", "/a-propos", "/programmes", "/projets", "/actualites", "/candidats", "/candidats/soumettre", "/transparence", "/contact"];
+  const staticPaths = ["", "/a-propos", "/programmes", "/projets", "/actualites", "/candidats", "/candidats/soumettre", "/transparence", "/contact", "/credits"];
   return [
     ...staticPaths.map((p) => ({ url: `${site.url}${p}`, changeFrequency: "monthly" as const, priority: p === "" ? 1 : 0.8 })),
     ...programs.map((p) => ({ url: `${site.url}/programmes/${p.slug}`, priority: 0.7 })),

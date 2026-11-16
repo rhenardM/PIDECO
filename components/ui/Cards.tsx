@@ -37,7 +37,14 @@ export function ProjectCard({ project, headingLevel = 3 }: { project: Project; h
   return (
     <article className={cardBase}>
       <div className="relative">
-        <MediaPlaceholder label={project.title} tone={program?.tone ?? "forest"} className="aspect-[16/10]" showLabel={false} />
+        <MediaPlaceholder
+          label={project.title}
+          image={project.image}
+          tone={program?.tone ?? "forest"}
+          className="aspect-[16/10]"
+          showLabel={false}
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        />
         <div className="absolute top-3 left-3 flex gap-2">
           <StatusPill status={project.status} />
         </div>
@@ -65,6 +72,8 @@ export function NewsCard({ article, featured = false }: { article: NewsArticle; 
     <article className={`${cardBase} ${featured ? "md:flex-row" : ""}`}>
       <MediaPlaceholder
         label={article.title}
+        image={article.image}
+        sizes={featured ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"}
         tone="night"
         showLabel={false}
         className={featured ? "aspect-[16/10] md:aspect-auto md:w-1/2" : "aspect-[16/9]"}

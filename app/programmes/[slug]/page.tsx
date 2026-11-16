@@ -49,6 +49,7 @@ export default async function ProgramPage({ params }: PageProps<"/programmes/[sl
         intro={program.description}
         crumbs={[{ label: "Nos programmes", href: "/programmes" }, { label: program.shortTitle }]}
         photoLabel={program.shortTitle}
+        image={program.image}
       />
 
       <section className="container-site py-20 md:py-24">

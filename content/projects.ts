@@ -2,6 +2,8 @@
  * Projets. Source : Kit §2.4 — « 4 projets fictifs » (fiche de collecte).
  * ⚠️ TOUS les projets ci-dessous sont des DONNÉES DE DÉMONSTRATION.
  */
+import type { IllustrationKey } from "./images";
+
 export type ProjectStatus = "En cours" | "Achevé" | "Planifié";
 
 export type Project = {
@@ -12,6 +14,8 @@ export type Project = {
   programSlug: string;
   summary: string;
   indicators: { value: string; label: string }[];
+  /** Photo d'illustration (exemple) — voir content/images.ts */
+  image: IllustrationKey;
   demo: true;
 };
 
@@ -27,6 +31,7 @@ export const projects: Project[] = [
     summary:
       "Formation de 2 500 jeunes aux métiers de l'énergie solaire, du recyclage plastique et de l'agriculture urbaine.",
     indicators: [{ value: "2 500", label: "jeunes à former" }],
+    image: "installation-panneaux-solaires",
     demo: true,
   },
   {
@@ -41,6 +46,7 @@ export const projects: Project[] = [
       { value: "85 km", label: "de routes rouvertes" },
       { value: "1 200", label: "emplois temporaires" },
     ],
+    image: "marche-butembo",
     demo: true,
   },
   {
@@ -52,6 +58,7 @@ export const projects: Project[] = [
     summary:
       "Financement et mentorat de 300 groupements de femmes actives dans la transformation agroalimentaire.",
     indicators: [{ value: "300", label: "groupements de femmes" }],
+    image: "transformation-alimentaire",
     demo: true,
   },
   {
@@ -63,6 +70,7 @@ export const projects: Project[] = [
     summary:
       "Forage de 40 puits équipés de pompes solaires et mise en place de comités de gestion communautaires.",
     indicators: [{ value: "40", label: "puits à pompe solaire" }],
+    image: "ecole-entretien",
     demo: true,
   },
 ];

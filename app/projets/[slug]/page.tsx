@@ -3,11 +3,24 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProject, projects } from "@/content/projects";
 import { getProgram } from "@/content/programs";
+import { illustrations, type IllustrationKey } from "@/content/images";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { MediaPlaceholder } from "@/components/ui/MediaPlaceholder";
 import { ProjectCard } from "@/components/ui/Cards";
 import { Alert, DemoBadge, Pending, StatusPill } from "@/components/ui/Status";
 import { MapPin } from "@/components/ui/icons";
+
+/** Galerie d'illustration : 6 photos de la banque d'images, en commençant par celle du projet. */
+const galleryPool: IllustrationKey[] = [
+  "ecole-paysanne-kasheke",
+  "champ-de-manioc",
+  "marche-kinshasa",
+  "agriculteur-ananas",
+  "rentree-scolaire",
+  "paysage-collines",
+  "habitants-village",
+];
+const galleryKeys = (first: IllustrationKey) => [first, ...galleryPool.filter((k) => k !== first)].slice(0, 6);
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -55,7 +68,7 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
           </div>
           <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight text-night-900 md:text-5xl">{project.title}</h1>
         </div>
-        <MediaPlaceholder label={project.title} tone={program?.tone ?? "forest"} className="h-64 md:h-96" />
+        <MediaPlaceholder label={project.title} image={project.image} className="h-64 md:h-96" priority />
       </header>
 
       <div className="container-site grid gap-12 py-16 lg:grid-cols-12">
@@ -84,12 +97,25 @@ export default async function ProjectPage({ params }: PageProps<"/projets/[slug]
 
           <h2 className="mt-14 text-2xl font-bold text-night-900">Galerie photo</h2>
           <ul className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3">
-            {["avant travaux", "activité en cours", "bénéficiaires", "réalisation", "comité de suivi", "remise officielle"].map((l, i) => (
-              <li key={l}>
-                <MediaPlaceholder label={l} tone={i % 2 ? "night" : "forest"} className="aspect-square rounded-xl" />
+            {galleryKeys(project.image).map((key) => (
+              <li key={key}>
+                <MediaPlaceholder
+                  label={illustrations[key].alt}
+                  image={key}
+                  className="aspect-square rounded-xl"
+                  showLabel={false}
+                  sizes="(min-width: 768px) 22vw, 50vw"
+                />
               </li>
             ))}
           </ul>
+          <p className="mt-3 text-xs text-muted">
+            Photos d&apos;illustration sans lien avec ce projet —{" "}
+            <Link href="/credits" className="underline">
+              crédits
+            </Link>
+            . Les photos réelles du projet sont à fournir.
+          </p>
         </div>
 
         <aside className="lg:col-span-4">

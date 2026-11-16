@@ -91,7 +91,12 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-site flex flex-col gap-2 py-6 text-xs text-white/50 md:flex-row md:justify-between">
           <p>© 2026 PIDECO - Programme Intégré de Développement Communautaire. Tous droits réservés.</p>
-          <p>Version de démonstration — contenus en cours de validation.</p>
+          <p>
+            Version de démonstration — contenus en cours de validation ·{" "}
+            <Link href="/credits" className="underline hover:text-white">
+              Crédits photos
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

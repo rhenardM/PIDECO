@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { illustrations, type IllustrationKey } from "@/content/images";
 import { documents } from "@/content/documents";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -18,6 +20,18 @@ const sections = [
   { id: "communiques", label: "Communiqués" },
   { id: "publications", label: "Publications & rapports" },
   { id: "galerie", label: "Galerie photo" },
+];
+
+const gallery: IllustrationKey[] = [
+  "ecole-paysanne-kasheke",
+  "installation-panneaux-solaires",
+  "champ-de-manioc",
+  "marche-legumes",
+  "eleves-en-classe",
+  "rassemblement-ecole",
+  "riziculture-ruzizi",
+  "marche-kinshasa",
+  "commerce-bananes",
 ];
 
 export default function NewsPage() {
@@ -66,24 +80,28 @@ export default function NewsPage() {
             eyebrow="Galerie photo"
             title="Le programme en images"
             tone="light"
-            intro="Les photographies officielles des activités seront intégrées ici (avec crédits et légendes)."
+            intro="Photos d'illustration en attendant les photographies officielles des activités."
           />
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
-            {[
-              "formation aux métiers verts",
-              "coopérative agricole",
-              "forage communautaire",
-              "atelier CLD",
-              "chantier HIMO",
-              "remise de kits",
-              "centre de santé",
-              "lancement de cohorte",
-            ].map((l, i) => (
-              <li key={l} className={i === 0 ? "col-span-2 row-span-2" : ""}>
-                <MediaPlaceholder label={l} tone={i % 3 === 0 ? "forest" : i % 3 === 1 ? "night" : "leaf"} className="h-full min-h-36 rounded-xl" />
+            {gallery.map((key, i) => (
+              <li key={key} className={i === 0 ? "col-span-2 row-span-2" : ""}>
+                <MediaPlaceholder
+                  label={illustrations[key].alt}
+                  image={key}
+                  className="h-full min-h-36 rounded-xl"
+                  showLabel={false}
+                  sizes={i === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
+                />
               </li>
             ))}
           </ul>
+          <p className="mt-4 text-xs text-white/60">
+            Images d&apos;exemple (Wikimedia Commons) sans lien avec PIDECO —{" "}
+            <Link href="/credits" className="underline hover:text-white">
+              voir les crédits
+            </Link>
+            .
+          </p>
         </div>
       </section>
     </>

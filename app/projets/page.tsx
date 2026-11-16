@@ -33,6 +33,7 @@ export default function ProjectsPage() {
         intro="Projets en cours, achevés et planifiés dans les provinces d'intervention."
         crumbs={[{ label: "Nos projets" }]}
         photoLabel="chantier HIMO de réhabilitation de piste rurale"
+        image="agriculteur-ananas"
         tone="night"
       />
 

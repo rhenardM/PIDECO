@@ -32,6 +32,7 @@ export default function CandidatesPage() {
         intro="Jeunes entrepreneurs, associations, coopératives et micro-entreprises : le PIDECO accompagne les projets qui créent de l'emploi et répondent aux besoins des communautés."
         crumbs={[{ label: "Espace candidats" }]}
         photoLabel="jeune entrepreneure dans son atelier"
+        image="commerce-bananes"
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <LinkButton href="/candidats/soumettre" variant="secondary" arrow>

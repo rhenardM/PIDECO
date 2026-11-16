@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "./Breadcrumbs";
 import { MediaPlaceholder, type Tone } from "./MediaPlaceholder";
+import type { IllustrationKey } from "@/content/images";
 
 /**
  * En-tête des pages intérieures.
@@ -13,6 +14,7 @@ export function PageHero({
   intro,
   crumbs,
   photoLabel,
+  image,
   tone = "forest",
   children,
 }: {
@@ -21,6 +23,7 @@ export function PageHero({
   intro?: ReactNode;
   crumbs: Crumb[];
   photoLabel?: string;
+  image?: IllustrationKey;
   tone?: Tone;
   children?: ReactNode;
 }) {
@@ -30,6 +33,9 @@ export function PageHero({
       {photoLabel && (
         <MediaPlaceholder
           label={photoLabel}
+          image={image}
+          sizes="40vw"
+          priority
           tone={tone === "night" ? "forest" : "night"}
           className="absolute inset-y-0 right-0 hidden w-[38%] rounded-bl-feature lg:block"
         />

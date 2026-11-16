@@ -1,3 +1,5 @@
+import NextImage from "next/image";
+import { illustrations, type IllustrationKey } from "@/content/images";
 import { Image as ImageIcon } from "./icons";
 
 export type Tone = "forest" | "night" | "sun" | "leaf";
@@ -10,23 +12,56 @@ const tones: Record<Tone, string> = {
 };
 
 /**
- * Visuel de remplacement : aucune photographie PIDECO n'a encore été fournie.
- * Le libellé décrit la photo attendue pour faciliter la collecte.
- * Pour intégrer une vraie photo, remplacer par <Image> (next/image).
+ * Visuel d'une section.
+ * - Avec `image` : photo d'ILLUSTRATION libre de droits (content/images.ts), toujours
+ *   signalée comme telle et créditée — ce ne sont pas des photos d'activités PIDECO.
+ * - Sans `image` : visuel de remplacement décrivant la photo attendue.
+ * `label` décrit la photo officielle à fournir à terme.
  */
 export function MediaPlaceholder({
   label,
+  image,
   tone = "forest",
   className = "",
   showLabel = true,
+  sizes = "100vw",
+  priority = false,
 }: {
   label: string;
+  image?: IllustrationKey;
   tone?: Tone;
   className?: string;
   showLabel?: boolean;
+  sizes?: string;
+  priority?: boolean;
 }) {
   // L'appelant peut positionner le visuel en absolu ; sinon il sert de repère.
   const position = /(^|\s)absolute(\s|$)/.test(className) ? "" : "relative";
+
+  if (image) {
+    const img = illustrations[image];
+    return (
+      <figure className={`${position} m-0 overflow-hidden bg-night-900 ${className}`}>
+        <NextImage
+          src={img.src}
+          alt={img.alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-cover"
+        />
+        {showLabel && (
+          <figcaption
+            className="absolute right-2 bottom-2 max-w-[90%] truncate rounded bg-black/50 px-1.5 py-0.5 text-[10px] text-white/85 backdrop-blur-sm"
+            title={`${img.alt} — ${img.author}, ${img.license}`}
+          >
+            Illustration · {img.author}, {img.license}
+          </figcaption>
+        )}
+      </figure>
+    );
+  }
+
   return (
     <div
       role="img"

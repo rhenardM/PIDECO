@@ -21,6 +21,8 @@ export default function ProgramsPage() {
         title="Quatre axes d'intervention complémentaires"
         intro="Une approche intégrée : former et insérer les jeunes, renforcer l'agriculture, équiper les territoires et outiller la gouvernance locale."
         crumbs={[{ label: "Nos programmes" }]}
+        photoLabel="activités de terrain"
+        image="ecole-paysanne-kasheke"
       >
         <ul className="flex flex-wrap gap-2">
           {programs.map((p) => (
@@ -42,6 +44,8 @@ export default function ProgramsPage() {
               <div className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16`}>
                 <MediaPlaceholder
                   label={p.shortTitle}
+                  image={p.image}
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   tone={p.tone}
                   className={`aspect-[4/3] ${reverse ? "lg:order-2 rounded-tr-feature" : "rounded-tl-feature"} rounded-card`}
                 />

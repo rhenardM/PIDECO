@@ -36,12 +36,22 @@ lib/application.ts    Règles de validation partagées client/serveur
 
 Tokens centralisés dans `app/globals.css` (`@theme`) : couleurs `forest` (vert profond), `night` (bleu nuit), `paper` (blanc cassé), `leaf` (vert clair), `sun` (jaune chaud), polices Poppins (titres) et Inter (texte), rayons `card` et `feature`, ombres. **Palette provisoire** en attendant la charte officielle.
 
+## Photos d'illustration
+
+Faute de photos PIDECO, le site utilise **19 photos d'exemple** issues de **Wikimedia Commons**, toutes sous licence libre (CC0, domaine public, CC BY-SA 2.0/4.0). La plupart ont été prises en RDC.
+
+- Fichiers dans `public/images/illustrations/`. Les métadonnées (légende, auteur, licence, source) sont dans `content/images.ts`.
+- Chaque photo visible porte la mention « Illustration · auteur, licence ». La page `/credits`, liée depuis le footer, donne l'attribution complète exigée par les licences CC BY-SA.
+- **Ce ne sont pas des photos d'activités PIDECO.** Les personnes photographiées n'ont aucun lien avec le programme. Exclusions volontaires : photos militaires ou sensibles, et photos de responsables politiques réels.
+- **L'équipe dirigeante n'est illustrée par aucune photo de personne réelle** (pictogrammes uniquement), pour ne pas faire croire que ces personnes travaillent pour PIDECO.
+- Pour remplacer une illustration par une photo officielle : ajouter le fichier dans `public/images/`, puis changer la clé `image` de l'élément dans `content/*.ts` ou l'entrée de `content/images.ts`.
+
 ## Gestion des contenus non confirmés
 
 - `DemoBanner` global, désactivable avec `NEXT_PUBLIC_DEMO_MODE=false`.
 - Badge « Démo » sur chaque chiffre, projet, actualité, appel et sur les coordonnées.
 - Composant `Pending` (« à fournir ») pour les informations manquantes : historique, tutelle, équipe, budgets, bureaux.
-- `MediaPlaceholder` à la place de chaque photo, avec la description de la photo attendue.
+- `MediaPlaceholder` affiche soit une photo d'illustration créditée, soit un visuel de remplacement décrivant la photo attendue.
 - Partenaires : emplacements neutres, **aucun logo**. Témoignages : section vide expliquée.
 - `robots.txt` bloque l'indexation tant que le mode démo est actif.
 

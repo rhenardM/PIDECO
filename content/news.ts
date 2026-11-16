@@ -3,6 +3,8 @@
  * ⚠️ DONNÉES DE DÉMONSTRATION. Le corps des articles n'est pas fourni :
  * seul le chapeau du kit est affiché, le reste est à rédiger par PIDECO.
  */
+import type { IllustrationKey } from "./images";
+
 export type NewsCategory = "Emploi des jeunes" | "Partenariats" | "Gouvernance locale" | "Communiqué";
 
 export type NewsArticle = {
@@ -12,6 +14,8 @@ export type NewsArticle = {
   category: NewsCategory;
   excerpt: string;
   body: string[] | null;
+  /** Photo d'illustration (exemple) — voir content/images.ts */
+  image: IllustrationKey;
   demo: true;
 };
 
@@ -26,6 +30,7 @@ export const news: NewsArticle[] = [
     excerpt:
       "Plus de 800 jeunes retenus entament cette semaine leur parcours de formation pratique dans les filières techniques et numériques au sein de nos centres partenaires.",
     body: null,
+    image: "temoignage-etudiants",
     demo: true,
   },
   {
@@ -36,6 +41,7 @@ export const news: NewsArticle[] = [
     excerpt:
       "Le PIDECO s'associe aux acteurs du secteur énergétique pour doter 15 centres de santé ruraux de systèmes photovoltaïques autonomes.",
     body: null,
+    image: "centre-de-sante",
     demo: true,
   },
   {
@@ -46,6 +52,7 @@ export const news: NewsArticle[] = [
     excerpt:
       "Trois jours d'échanges fructueux avec les représentants provinciaux pour standardiser le suivi-évaluation des initiatives communautaires.",
     body: null,
+    image: "etudiantes-presentation",
     demo: true,
   },
 ];

@@ -30,8 +30,10 @@ export default function HomePage() {
         <div className="relative lg:pt-16">
           <MediaPlaceholder
             label="jeunes en formation sur un chantier communautaire (RDC)"
+            image="ecole-paysanne-kasheke"
+            priority
             tone="night"
-            className="h-72 sm:h-96 lg:absolute lg:inset-x-0 lg:top-36 lg:bottom-0 lg:h-auto"
+            className="h-72 sm:h-96 lg:absolute lg:inset-0 lg:h-auto"
           />
           <div className="container-site relative pb-0 lg:pb-28">
             <div className="animate-rise relative -mt-24 max-w-3xl overflow-hidden rounded-card shadow-lift sm:-mt-32 lg:mt-0">
@@ -155,7 +157,12 @@ export default function HomePage() {
               Mission, vision & valeurs
             </LinkButton>
           </div>
-          <MediaPlaceholder label="réunion d'un Comité Local de Développement" tone="leaf" className="min-h-72" />
+          <MediaPlaceholder
+            label="réunion d'un Comité Local de Développement"
+            image="habitants-village"
+            className="min-h-72"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+          />
         </div>
         </div>
       </section>

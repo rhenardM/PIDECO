@@ -37,6 +37,7 @@ export default function AboutPage() {
         intro="Revitaliser durablement les territoires urbains et ruraux de la RDC par l'emploi, l'investissement communautaire et la gouvernance participative."
         crumbs={[{ label: "À propos" }]}
         photoLabel="portrait d'équipe sur le terrain"
+        image="riziculture-ruzizi"
       />
 
       {/* Sommaire de page */}

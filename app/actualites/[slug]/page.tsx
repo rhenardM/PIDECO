@@ -54,7 +54,13 @@ export default async function ArticlePage({ params }: PageProps<"/actualites/[sl
           <p className="mt-6 text-xl leading-relaxed text-muted">{article.excerpt}</p>
         </header>
         <div className="container-site max-w-5xl">
-          <MediaPlaceholder label={article.title} tone="night" className="aspect-[16/8] rounded-card" />
+          <MediaPlaceholder
+            label={article.title}
+            image={article.image}
+            className="aspect-[16/8] rounded-card"
+            sizes="(min-width: 1024px) 64rem, 100vw"
+            priority
+          />
         </div>
         <div className="container-site prose-pideco max-w-3xl py-12 text-lg">
           {article.body ? (
